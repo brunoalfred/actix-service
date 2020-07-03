@@ -1,4 +1,5 @@
-use actix_web::{web, App, HttpServer, };
+
+use actix_web::{web, App, HttpServer,middleware, };
 mod handlers;
 
 
@@ -9,10 +10,12 @@ mod handlers;
 async fn main() -> std::io::Result<()> {
     HttpServer::new(||{
         App::new()
+        .wrap(middleware::Compress::default())
         .route("/", web::get().to(handlers::req_handlers::index))
         .route("/again", web::get().to(handlers::req_handlers::index2))
         .route("/inside", web::get().to(handlers::req_handlers::index3))
         .service(handlers::req_handlers::index4)
+        
         
     })  
     .bind("127.0.0.1:8088")?
