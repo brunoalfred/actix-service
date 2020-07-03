@@ -12,9 +12,9 @@ async fn main() -> std::io::Result<()> {
         .route("/", web::get().to(handlers::req_handlers::index))
         .route("/again", web::get().to(handlers::req_handlers::index2))
         .route("/inside", web::get().to(handlers::req_handlers::index3))
+        .service(handlers::req_handlers::index4)
         
-        
-    })
+    })  
     .bind("127.0.0.1:8088")?
     .run()
     .await
