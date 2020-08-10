@@ -1,8 +1,11 @@
-FROM rust:1.43.1
+FROM rust:latest
 
-WORKDIR /usr/src/actix-service
+RUN USER=root cargo new --bin rust-docker-web
+WORKDIR /actix-service
 COPY . .
 
 RUN cargo install --path .
 
-CMD ["actix-service"]
+# CMD ["actix-service"]
+
+CMD ["actix"]
