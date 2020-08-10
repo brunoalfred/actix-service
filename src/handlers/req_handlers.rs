@@ -1,19 +1,19 @@
 use actix_web::{get, HttpResponse, Responder};
 
 pub async fn index() -> impl Responder {
-    HttpResponse::Ok().body("Hello world")
+    HttpResponse::Ok().body("Welcome to home Page")
 }
 
 
 pub async fn index2() -> impl Responder {
-    HttpResponse::Ok().body("Hello world Again")
+    HttpResponse::Ok().body("About Page")
 }
 
 pub async fn index3() -> impl Responder {
-    HttpResponse::Ok().body("This is my Room")
+    HttpResponse::Ok().body("Login Page")
 }
 
 #[get("/hello")]
 async fn index4() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
+    HttpResponse::Ok().body("Register Page")
 }
